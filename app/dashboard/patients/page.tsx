@@ -33,7 +33,7 @@ export default async function PatientsPage() {
           className="border p-3 w-full"
         />
 
-        <button className="bg-black text-white px-5 py-3 rounded">
+        <button type="submit" className="bg-black text-white px-5 py-3 rounded">
           Add Patient
         </button>
       </form>
