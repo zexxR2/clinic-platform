@@ -57,3 +57,22 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ success: true });
 }
+
+export async function PATCH(request: Request) {
+  const supabase = await createClient();
+
+  const body = await request.json();
+
+  const { id, status } = body;
+
+  const { error } = await supabase
+    .from("appointments")
+    .update({ status })
+    .eq("id", id);
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 400 });
+  }
+
+  return NextResponse.json({ success: true });
+}
